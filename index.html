@@ -30,7 +30,7 @@
       transition: transform 0.25s, box-shadow 0.25s;
       animation: fadeInCard .7s cubic-bezier(.4,.2,.2,1);
       display: grid;
-      grid-template-rows: auto auto auto auto auto 60px auto;
+      grid-template-rows: auto auto auto auto auto 70px auto;
       grid-row-gap: 1.1rem;
       min-height: 540px;
       margin: 0 auto;
@@ -118,13 +118,23 @@
       color: #FFD700;
       transform: scale(1.04);
     }
-    .ad-below-watch {
+    .ad-below-watch, .ad-modal {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      grid-row: 6;
       min-height: 60px;
-      padding-top: 6px;
+      margin: 10px 0;
+      gap: 8px;
+      width: 100%;
+    }
+    #adBelowWatch, #adModal {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
     }
     .more-video-btn {
       background: linear-gradient(90deg,#232526 60%,#121212 140%);
@@ -192,14 +202,6 @@
     .close-btn:hover {
       background: #232526;
       color: #FFD700;
-    }
-    .ad-modal {
-      width: 100%;
-      margin: 44px 0 12px 0;
-      display: flex;
-      justify-content: center;
-      min-height: 56px;
-      z-index: 1;
     }
     .video-player {
       width: 700px;
@@ -289,7 +291,7 @@
     <div class="thumb-container">
       <img src="u4FkboJm1.jpg" alt="Video Thumbnail" class="review-img">
     </div>
-    <h1>I can't believe this he's really enjoying it🦄✨</h1>
+    <h1>I can't believe this he's really enjoying it</h1>
     <div class="desc">🔥 Viral Picks for You!
 Don't miss the latest funny, wild, and trending videos. Laugh, relax, and share with your friends!</div>
     <div class="stars">
@@ -326,39 +328,61 @@ Don't miss the latest funny, wild, and trending videos. Laugh, relax, and share 
     </div>
   </div>
   <script type="text/javascript">
-    // Inject ad below Watch Video button
+    // Dua slot iklan di bawah tombol Watch Video
     function injectAdBelowWatch() {
       var adDiv = document.getElementById('adBelowWatch');
       if (adDiv && !adDiv.hasChildNodes()) {
-        var script1 = document.createElement('script');
-        script1.type = "text/javascript";
-        script1.innerHTML = "atOptions = { 'key' : '97769e31ab76979e0ee340bc5c857351', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };";
-        adDiv.appendChild(script1);
+        // Ad Slot 1
+        var scriptConfig1 = document.createElement('script');
+        scriptConfig1.type = "text/javascript";
+        scriptConfig1.innerHTML = "atOptions = { 'key' : '97769e31ab76979e0ee340bc5c857351', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };";
+        adDiv.appendChild(scriptConfig1);
 
-        var script2 = document.createElement('script');
-        script2.type = "text/javascript";
-        script1.innerHTML = "atOptions = { 'key' : '4a2fc598ebbbdbc95eb3bef73798c939', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };";
-        script2.src = "//www.highperformanceformat.com/4a2fc598ebbbdbc95eb3bef73798c939/invoke.js";
-        adDiv.appendChild(script2);
+        var scriptSrc1 = document.createElement('script');
+        scriptSrc1.type = "text/javascript";
+        scriptSrc1.src = "//www.highperformanceformat.com/97769e31ab76979e0ee340bc5c857351/invoke.js";
+        adDiv.appendChild(scriptSrc1);
+
+        // Ad Slot 2
+        var scriptConfig2 = document.createElement('script');
+        scriptConfig2.type = "text/javascript";
+        scriptConfig2.innerHTML = "atOptions = { 'key' : '4a2fc598ebbbdbc95eb3bef73798c939', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };";
+        adDiv.appendChild(scriptConfig2);
+
+        var scriptSrc2 = document.createElement('script');
+        scriptSrc2.type = "text/javascript";
+        scriptSrc2.src = "//www.highperformanceformat.com/4a2fc598ebbbdbc95eb3bef73798c939/invoke.js";
+        adDiv.appendChild(scriptSrc2);
       }
     }
     injectAdBelowWatch();
 
+    // Dua slot iklan di dalam modal
     function showVideoModal() {
       document.getElementById('videoModal').style.display = 'flex';
-      // Inject ad below close button inside modal
       var adDiv = document.getElementById('adModal');
       if (adDiv && !adDiv.hasChildNodes()) {
-        var script1 = document.createElement('script');
-        script1.type = "text/javascript";
-        script1.innerHTML = "atOptions = { 'key' : '97769e31ab76979e0ee340bc5c857351', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };";
-        adDiv.appendChild(script1);
+        // Ad Slot 1
+        var scriptConfig1 = document.createElement('script');
+        scriptConfig1.type = "text/javascript";
+        scriptConfig1.innerHTML = "atOptions = { 'key' : '97769e31ab76979e0ee340bc5c857351', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };";
+        adDiv.appendChild(scriptConfig1);
 
-        var script2 = document.createElement('script');
-        script2.type = "text/javascript";
-        script1.innerHTML = "atOptions = { 'key' : '4a2fc598ebbbdbc95eb3bef73798c939', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };";
-        script2.src = "//www.highperformanceformat.com/4a2fc598ebbbdbc95eb3bef73798c939/invoke.js";
-        adDiv.appendChild(script2);
+        var scriptSrc1 = document.createElement('script');
+        scriptSrc1.type = "text/javascript";
+        scriptSrc1.src = "//www.highperformanceformat.com/97769e31ab76979e0ee340bc5c857351/invoke.js";
+        adDiv.appendChild(scriptSrc1);
+
+        // Ad Slot 2
+        var scriptConfig2 = document.createElement('script');
+        scriptConfig2.type = "text/javascript";
+        scriptConfig2.innerHTML = "atOptions = { 'key' : '4a2fc598ebbbdbc95eb3bef73798c939', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };";
+        adDiv.appendChild(scriptConfig2);
+
+        var scriptSrc2 = document.createElement('script');
+        scriptSrc2.type = "text/javascript";
+        scriptSrc2.src = "//www.highperformanceformat.com/4a2fc598ebbbdbc95eb3bef73798c939/invoke.js";
+        adDiv.appendChild(scriptSrc2);
       }
     }
     function closeVideoModal() {
@@ -373,14 +397,12 @@ Don't miss the latest funny, wild, and trending videos. Laugh, relax, and share 
           e.preventDefault();
         }
       });
-
       document.addEventListener('keydown', function (e) {
         if (e.key === "F12") e.preventDefault();
         if (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) e.preventDefault();
         if (e.ctrlKey && ["U","S"].includes(e.key.toUpperCase())) e.preventDefault();
       });
     })();
-    
   </script>
 </body>
 </html>
